@@ -3,7 +3,6 @@ import FavoritePlaces from './components/FavoritePlaces'
 import TopHashtags from './components/TopHashtags'
 import Issues from './components/Issues'
 import Header from './components/Header'
-import LiveFeed from './components/LiveFeed'
 import firebase from 'firebase'
 
 class App extends Component {
@@ -47,7 +46,6 @@ class App extends Component {
           <TopHashtags hashtags={this.state.hashtags}/>
           <Issues />
         </div>
-        <LiveFeed />
         <FavoritePlaces/>
       </div>
     );
