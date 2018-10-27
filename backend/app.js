@@ -50,7 +50,7 @@ app.get('/tweets/201810260000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
