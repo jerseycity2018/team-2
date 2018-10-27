@@ -24,14 +24,14 @@ class FavoritePlaces extends Component {
 
     return (
       <div className="App">
-      <h4>Top Places: </h4>
-      <table style={{ width:"60%"}}>
+        <h4>Top Places: </h4>
+        <table style={{ width:"60%"}}>
           <tr>
-           {Object.keys(this.state.locations).map(location => {
-            return (
-              <td>{location} {this.state.locations[location]}</td>
-            )
-          })}
+            {Object.keys(this.state.locations).sort((a,b)=>{return this.state.locations[b]-this.state.locations[a]}).map(location => {
+              return (
+                <td>{location} {this.state.locations[location]}</td>
+              )
+            })}
           </tr>
       </table>
       </div>

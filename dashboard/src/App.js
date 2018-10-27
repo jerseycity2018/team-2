@@ -5,6 +5,7 @@ import Issues from './components/Issues'
 import Header from './components/Header'
 import LiveFeed from './components/LiveFeed'
 import firebase from 'firebase'
+
 class App extends Component {
   componentWillMount(){
     var config = {
@@ -52,7 +53,6 @@ class App extends Component {
 const firstRow={
   "flex-direction": 'row',
   "display": 'flex',
-  "justify-content": 'space-between'
 }
 const divStyle={
   "margin": 20
