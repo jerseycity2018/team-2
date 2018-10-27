@@ -20,6 +20,18 @@ app.get('/tweets', (req, res) => {
     res.send(data.results.filter(tweet => tweet.retweeted_status == undefined)
 )
   })
+    T.get('tweets/search/30day/prodcpc', { fromDate: '201810250000', toDate: '201810260000', query: 'place:central park, has:hashtags' },  function (err, data, response) {
+    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined)
+)
+  })
+   T.get('tweets/search/30day/prodcpc', { fromDate: '201810250000', toDate: '201810260000', query: 'place:central park, has:images' },  function (err, data, response) {
+    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined)
+)
+  })
+   T.get('tweets/search/30day/prodcpc', { fromDate: '20189270000', toDate: '201810260000', query: 'place:central park, is:verified' },  function (err, data, response) {
+    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined)
+)
+  })
 })
 
 
