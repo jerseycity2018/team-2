@@ -19,7 +19,7 @@ class App extends Component {
     firebase.initializeApp(config);
   }
   componentDidMount(){
-    this.setSourceTime(201810260000)
+    this.setSourceTime(20181027)
   }
   state = {
     all:[],
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   setSourceTime = (time) => {
-    fetch("https://cryptic-savannah-95295.herokuapp.com/tweets/"+time,{
+    fetch("https://cryptic-savannah-95295.herokuapp.com/tweets/"+time+"0000",{
       headers: {
         "Content-Type":"application/json; charset=UTF-8"
       }

@@ -3,7 +3,14 @@ const app = express()
 const Twit = require('twit')
 const port =  process.env.PORT || 3000
 
-app.get('/', (req, res) => res.send('Hello World!'))
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/', (req, res) => res.json('Hello World!'))
 
 app.get('/tweets/201810270000', (req, res) => {
 
@@ -43,7 +50,7 @@ app.get('/tweets/201810270000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -89,7 +96,7 @@ app.get('/tweets/201810260000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -134,7 +141,7 @@ app.get('/tweets/201810250000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -179,7 +186,7 @@ app.get('/tweets/201810240000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -224,7 +231,7 @@ app.get('/tweets/201810230000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -269,7 +276,7 @@ app.get('/tweets/201810220000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -314,7 +321,7 @@ app.get('/tweets/201810210000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
@@ -359,7 +366,7 @@ app.get('/tweets/201810200000', (req, res) => {
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
-    res.send(tweets)
+    res.json(tweets)
 
   })
 
