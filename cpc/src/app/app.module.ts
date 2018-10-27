@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import firebase from 'firebase';
+// 
+
 
 import { AboutPage } from '../pages/about/about';
 import { ConcernsPage } from '../pages/concerns/concerns';
@@ -21,8 +24,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,

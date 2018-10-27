@@ -24,9 +24,28 @@
             </ion-select>
           </ion-item>            
       </ion-row>
+
+      <ion-item>
+          <ion-label color="primary" stacked></ion-label>
+          <ion-input type="text" placeholder="Please add details for your comment" [(ngModel)]="comment"></ion-input>
+      </ion-item>
+
       <div padding>
-          <button ion-button block (click)="popUp()">Sign In</button>
+          <button ion-button block (click)="popUp(comment)">Sign In</button>
       </div>
+      
+<!-- fab button  -->
+      <ion-fab bottom right >
+          <button ion-fab>Share</button>
+          <ion-fab-list side="top">
+            <button ion-fab>Facebook</button>
+            <button ion-fab>Twitter</button>
+            <button ion-fab>Youtube</button>
+          </ion-fab-list>
+          <ion-fab-list side="left">
+            <button ion-fab>Vimeo</button>
+          </ion-fab-list>
+        </ion-fab>
 
     </ion-grid> 
 

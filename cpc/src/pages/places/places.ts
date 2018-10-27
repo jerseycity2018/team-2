@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { place } from '../../models/place'; 
+import firebase from 'firebase';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'; 
 
 @Component({
   selector: 'page-places',
@@ -28,9 +30,14 @@ export class PlacesPage {
 
     let belCast = new place ("Belvedere Castle", "Originally designed in 1866 by Jacob Wrey Mould. closed for restoration till Friday, May 31, 2019.", "../../assets/imgs/bel_cast.jpg");
     this.places.push(belCast);
+
+
   }
 
-  visitPlace(location: place) {
+   visitedPlace(location: place) {
+    let visited = location; 
+    firebase.database().ref("Locations/" + Date.now()).set({"location": location});
+    console.log(visited); 
     
   }
 
