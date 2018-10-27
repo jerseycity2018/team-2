@@ -47,7 +47,7 @@ class FavoritePlaces extends Component {
             {Object.keys(this.state.locations).sort((a,b)=>{return this.state.locations[b]-this.state.locations[a]}).map(location => {
               return (
                 <div>{location} {this.state.locations[location]}
-                <img src={this.getImage(location)} style={{width: 150}} />
+                <img src={this.getImage(location)} style={imgStyle} />
                 </div>
               )
             })}
@@ -58,6 +58,12 @@ class FavoritePlaces extends Component {
   }
 }
 
+const imgStyle={
+  "align-items": 'center',
+  "width": '200px',
+  "height": '125px',
+  "border-radius": '20px'
+}
 const rowStyle={
  "flex-direction": 'row',
  "display": 'flex',

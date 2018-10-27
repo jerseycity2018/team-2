@@ -47,9 +47,7 @@ class Issues extends Component {
          <div style={msgStyle}>
            {Object.keys(this.state.complaints[this.state.value]).map(complaint=>{return (msgBox(this.state.complaints[this.state.value][complaint]))})}
          </div>
-         <div style={msgStyle}>
 
-         </div>
        </div>
      </section>
    );
@@ -65,11 +63,10 @@ const rowStyle={
 const sectionStyle = {
  "padding-left": '50px',
  "padding-right": '50px',
- "min-width": 700
 };
 
 const msgStyle = {
-  "flex-wrap": "wrap",
+"flex-wrap": "wrap",
  "flex-direction": 'row',
  "display":'flex'
 }
@@ -77,14 +74,12 @@ const msgStyle = {
 const msgBoxStyle = {
   "color":'white',
   "font-weight": 'bold',
-  "position": 'relative',
   "width": '250px',
   "height": '125px',
-  "boxSizing": 'border-box',
   "border": '5px solid #fff',
   "border-radius": '20px',
   "text-align": 'left',
-  "padding": '5px 10px',
+  "padding": '10px',
   "background": '#FFAB91'
 }
 
