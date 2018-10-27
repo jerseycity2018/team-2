@@ -74,14 +74,17 @@ const msgStyle = {
 }
 
 const msgBoxStyle = {
+  "color":'white',
+  "font-weight": 'bold',
   "position": 'relative',
   "width": '250px',
   "height": '250px',
   "boxSizing": 'border-box',
-  "border": '5px solid #FFAB91',
+  "border": '5px solid #fff',
   "border-radius": '20px',
   "text-align": 'left',
-  "padding": '5px 10px'
+  "padding": '5px 10px',
+  "background": '#FFAB91'
 }
 
 export default Issues;
