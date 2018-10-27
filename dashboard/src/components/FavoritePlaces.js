@@ -65,13 +65,14 @@ const rowStyle={
 }
 
 const tableStyle={
+  "font-weight": 'bold',
   "align-items": 'center',
   "justify-content": 'space-between',
   "flex-direction": 'row',
   "display": 'flex',
    "position": 'relative',
    "min-width": '450px',
-   "min-height": '250px',
+   "min-height": '150px',
    "boxSizing": 'border-box',
    "border": '5px solid #FFAB91',
    "border-radius": '20px',

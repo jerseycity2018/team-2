@@ -79,7 +79,7 @@ const msgBoxStyle = {
   "font-weight": 'bold',
   "position": 'relative',
   "width": '250px',
-  "height": '250px',
+  "height": '125px',
   "boxSizing": 'border-box',
   "border": '5px solid #fff',
   "border-radius": '20px',
