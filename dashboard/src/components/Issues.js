@@ -70,7 +70,7 @@ const sectionStyle = {
 
 const msgStyle = {
   "flex-direction": 'row',
-  "display":'flex',
+  "display":'flex'
 }
 
 const msgBoxStyle = {

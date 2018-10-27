@@ -6,15 +6,15 @@ class LiveFeed extends Component {
   render() {
     return (
       <section className="App" style={sectionStyle}>
-      <div>
-        <h4>Top Places: </h4>
-        <div style={msgStyle}>
+        {/*<div>
+          <h4>Top Places: </h4>
+          <div style={msgStyle}>
 
-        </div>
-        <div style={msgStyle}>
+          </div>
+          <div style={msgStyle}>
 
-        </div>
-      </div>
+          </div>
+        </div> */}
       </section>
     );
   }
@@ -33,7 +33,7 @@ const sectionStyle = {
 
 const msgStyle = {
   "flex-direction": 'row',
-  "display":'flex',
+  "display":'flex'
 }
 
 const msgBoxStyle = {

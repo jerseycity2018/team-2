@@ -1,24 +1,37 @@
 import React, { Component } from 'react';
 import '../topPlaces.css';
+import firebase from 'firebase'
 class FavoritePlaces extends Component {
+  componentDidMount() {
+    firebase.database().ref("Locations").on("value", (snapshot)=>{
+      let locations={}
+      let data = snapshot.val()
+      Object.keys(data).forEach(time=>{
+        if (data[time].location.name in locations){
+          locations[data[time].location.name] = locations[data[time].location.name]+1
+        }else{
+          locations[data[time].location.name] = 1
+        }
+      })
+      this.setState({locations:locations})
+    })
+  }
+  state={
+    locations: {},
+  }
   render(){
-    // var trStyle = {
-    //   border: "5px solid red"
-    // };
+
+
     return (
       <div className="App">
-      <table style={{border: "5px solid red", width:"60%"}}>
-          <tr style={{border: "5px solid red"}}>
-            <td style={{border: "5px solid red"}}>Test1</td>
-            <td style={{border: "5px solid red"}}>Test1</td>
-          </tr>
-          <tr style={{border: "5px solid red"}}>
-            <td style={{border: "5px solid red"}}>Test1</td>
-            <td style={{border: "5px solid red"}}>Test1</td>
-          </tr>
-          <tr style={{border: "5px solid red"}}>
-            <td style={{border: "5px solid red"}}>Test1</td>
-            <td style={{border: "5px solid red"}}>Test1</td>
+      <h4>Top Places: </h4>
+      <table style={{ width:"60%"}}>
+          <tr>
+           {Object.keys(this.state.locations).map(location => {
+            return (
+              <td>{location} {this.state.locations[location]}</td>
+            )
+          })}
           </tr>
       </table>
       </div>
@@ -27,29 +40,3 @@ class FavoritePlaces extends Component {
 }
 
 export default FavoritePlaces;
-//import './topPlaces.css';
-//import ReactTable from "react-table"
-// const data = [{
-//   locationName:'',
-//   locationName:''
-// },{
-//   locationName:'',
-//   locationName:''
-// },{
-//   locationName:'',
-//   locationName:''
-// }]
-// const columns = [{
-//   Header :'',
-//   accessor: 'locationName'
-// },{
-//   Header:'',
-//   accessor:'locationName'
-// }]
-
-// <ReactTable
-//  data = {data}
-//  columns = {columns}
-//  defaultPageSize = {3}
-//  pageSizeOptions = {[3,6]}
-// />
