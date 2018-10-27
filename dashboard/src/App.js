@@ -19,7 +19,17 @@ class App extends Component {
     firebase.initializeApp(config);
   }
   componentDidMount(){
-    fetch("https://cryptic-savannah-95295.herokuapp.com/tweets/201810260000",{
+    this.setSourceTime(201810260000)
+  }
+  state = {
+    all:[],
+    hashtags:{},
+    num_tweets:0,
+    num_mentions:0
+  }
+
+  setSourceTime = (time) => {
+    fetch("https://cryptic-savannah-95295.herokuapp.com/tweets/"+time,{
       headers: {
         "Content-Type":"application/json; charset=UTF-8"
       }
@@ -29,16 +39,10 @@ class App extends Component {
         this.setState({all: json.all, hashtags: json.hashtags, num_tweets: json.num_tweets, num_mentions: json.num_mentions})
     })
   }
-  state = {
-    all:[],
-    hashtags:{},
-    num_tweets:0,
-    num_mentions:0
-  }
   render() {
     return (
       <div style={divStyle}>
-        <Header visitors={this.state.num_tweets} groups={this.state.num_mentions} />
+        <Header visitors={this.state.num_tweets} groups={this.state.num_mentions} setSourceTime={(time)=>this.setSourceTime(time)} />
         <div style={firstRow}>
           <TopHashtags hashtags={this.state.hashtags}/>
           <Issues />
@@ -55,6 +59,6 @@ const firstRow={
   "display": 'flex',
 }
 const divStyle={
-  "margin": 20
+  "margin": 40
 }
 export default App;

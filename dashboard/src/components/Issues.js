@@ -69,6 +69,7 @@ const sectionStyle = {
 };
 
 const msgStyle = {
+  "flex-wrap": "wrap",
  "flex-direction": 'row',
  "display":'flex'
 }

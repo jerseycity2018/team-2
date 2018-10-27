@@ -8,7 +8,7 @@ class Header extends Component {
         <div style={headerStyle}>
 
           <img style={{height: 70}} src="https://cdnfiles.crowdrise.com/Prod_Large/CPC-Logo-HiRes_1-4db89a250b22e.jpg?5bd3f0015e3e9"/>
-          <div style={{"flex-direction": "column", display: "flex", "align-items": "flex-start"}}>
+          <div style={{"flex-direction": "row", display: "flex", "align-items": "center", "justify-content":"center"}}>
             <h4 style={{"margin": 12}}>Select a day:</h4>
             <select>
               <option>Sat Oct 27 2018</option>
