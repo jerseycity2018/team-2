@@ -1,7 +1,14 @@
 const express = require('express')
 const app = express()
 const Twit = require('twit')
-const port = process.env.PORT || 3000
+const port =  process.env.PORT || 3000
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
@@ -18,7 +25,9 @@ app.get('/tweets/201810260000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -34,11 +43,13 @@ app.get('/tweets/201810260000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
@@ -59,7 +70,9 @@ app.get('/tweets/201810250000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -75,11 +88,13 @@ app.get('/tweets/201810250000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
@@ -100,7 +115,9 @@ app.get('/tweets/201810240000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -116,11 +133,13 @@ app.get('/tweets/201810240000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
@@ -141,7 +160,9 @@ app.get('/tweets/201810230000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -157,11 +178,13 @@ app.get('/tweets/201810230000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
@@ -182,7 +205,9 @@ app.get('/tweets/201810220000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -198,11 +223,13 @@ app.get('/tweets/201810220000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
@@ -223,7 +250,9 @@ app.get('/tweets/201810210000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -239,11 +268,13 @@ app.get('/tweets/201810210000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
@@ -264,7 +295,9 @@ app.get('/tweets/201810200000', (req, res) => {
 
   var tweets = {
     'all' : [],
-    hashtags: {}
+    hashtags : {},
+    num_tweets : 0,
+    num_mentions : 0
   }
 
   var hashtagsDict = { }
@@ -280,11 +313,13 @@ app.get('/tweets/201810200000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
+    tweets.num_tweets = tweets.all.length
     res.send(tweets)
 
   })
