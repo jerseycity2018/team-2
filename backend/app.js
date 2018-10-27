@@ -15,15 +15,19 @@ app.get('/tweets', (req, res) => {
     timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
     strictSSL:            false,     // optional - requires SSL certificates to be valid.
   })
-  var tweets = {
-    'all' : T.get('tweets/search/30day/prodcpc', { fromDate: '201810260000', toDate: '201810270000', query: 'place:central park' },  function (err, data, response) {
-    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined))})
-    'hashtags' : T.get('tweets/search/30day/prodcpc', { fromDate: '201810250000', toDate: '201810260000', query: 'place:central park, has:hashtags' },  function (err, data, response) {
-    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined))})
-    'verified' : T.get('tweets/search/30day/prodcpc', { fromDate: '20189270000', toDate: '201810260000', query: 'place:central park, is:verified' },  function (err, data, response) {
-    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined))})
-  }
-  return tweets;
 
-}
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+  var tweets = {
+    'all' : []
+  }
+  T.get('tweets/search/30day/prodcpc', { fromDate: '201810260000', toDate: '201810270000', query: "place:central_park" },  function (err, data, response) {
+    tweets.all = data.results.filter(tweet => tweet.retweeted_status == undefined)
+   
+    })
+    res.send(tweets)
+
+  })
+
+
+
+})
+app.listen(port, () => console.log(Example app listening on port ${port}!))
