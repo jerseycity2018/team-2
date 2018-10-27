@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import VisitorNumber from './components/VisitorNumber'
+import FavoritePlaces from './components/FavoritePlaces'
+import TopHashtags from './components/TopHashtags'
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <VisitorNumber/>
+        <FavoritePlaces/>
+        <TopHashtags/>
       </div>
     );
   }
