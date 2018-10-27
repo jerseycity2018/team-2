@@ -33,25 +33,25 @@ class Issues extends Component {
 
    return (
      <section className="App" style={sectionStyle}>
-     <div>
+       <div>
 
-       <div style={rowStyle}>
-         <h4>Complaints </h4>
-         <select style={{"margin":10}} value={this.state.value} onChange={this.handleChange}>
-           <option value="Garbage">Garbage</option>
-           <option value="noise">Noise</option>
-           <option value="misuse">Inappropriate Usage</option>
-           <option value="others">Others</option>
-         </select>
-       </div>
-       <div style={msgStyle}>
-         {Object.keys(this.state.complaints[this.state.value]).map(complaint=>{return (msgBox(this.state.complaints[this.state.value][complaint]))})}
-       </div>
-       <div style={msgStyle}>
+         <div style={rowStyle}>
+           <h4>Complaints </h4>
+           <select style={{"margin":10}} value={this.state.value} onChange={this.handleChange}>
+             <option value="Garbage">Garbage</option>
+             <option value="noise">Noise</option>
+             <option value="misuse">Inappropriate Usage</option>
+             <option value="others">Others</option>
+           </select>
+         </div>
+         <div style={msgStyle}>
+           {Object.keys(this.state.complaints[this.state.value]).map(complaint=>{return (msgBox(this.state.complaints[this.state.value][complaint]))})}
+         </div>
+         <div style={msgStyle}>
 
+         </div>
        </div>
-     </div>
-   </section>
+     </section>
    );
 
  }
