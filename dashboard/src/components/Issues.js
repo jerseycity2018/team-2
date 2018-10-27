@@ -5,7 +5,7 @@ import firebase from 'firebase'
 
 let msgBox=(msg)=>
   <div style={{"flex":'1'}}>
-    <div style={msgPadding}>
+    <div style={msgBoxStyle}>
       <p>{msg}</p>
     </div>
   </div>
@@ -35,9 +35,9 @@ class Issues extends Component {
       <section className="App" style={sectionStyle}>
       <div>
 
-        <div>
-          <h2>Categories</h2>
-          <select value={this.state.value} onChange={this.handleChange}>
+        <div style={rowStyle}>
+          <h4>Complaints </h4>
+          <select style={{"margin":10}} value={this.state.value} onChange={this.handleChange}>
             <option value="Garbage">Garbage</option>
             <option value="noise">Noise</option>
             <option value="misuse">Inappropriate Usage</option>
@@ -57,18 +57,30 @@ class Issues extends Component {
   }
 }
 
+const rowStyle={
+  "flex-direction": 'row',
+  "display": 'flex',
+  "align-items": 'center'
+}
 const sectionStyle = {
-  "padding-top": '50px',
-  "padding-bottom": '50px',
-  "text-align": 'center'
+  "padding-left": '50px',
+  "padding-right": '50px',
+  "min-width": 700
 };
 
 const msgStyle = {
   "flex-direction": 'row',
-  "display":"flex",
+  "display":'flex'
 }
 
-const msgPadding = {
+const msgBoxStyle = {
+  "position": 'relative',
+  "width": '250px',
+  "height": '250px',
+  "boxSizing": 'border-box',
+  "border": '5px solid #FFAB91',
+  "border-radius": '20px',
+  "text-align": 'left',
   "padding": '5px 10px'
 }
 
