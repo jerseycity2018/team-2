@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express')
 const app = express()
 const Twit = require('twit')
@@ -8,6 +9,9 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/tweets', (req, res) => {
 
   var T = new Twit({
+=======
+var T = new Twit({
+>>>>>>> c5b99e900cafa9b24cbb53bce1503df270b8e51e
     consumer_key:        process.env.CONSUMER_KEY,
     consumer_secret:     process.env.CONSUMER_SECRET,
     access_token:        process.env.ACCESS_TOKEN,
@@ -16,11 +20,34 @@ app.get('/tweets', (req, res) => {
     strictSSL:            false,     // optional - requires SSL certificates to be valid.
   })
 
-  T.get('tweets/search/30day/prodcpc', { fromDate: '201810260000', toDate: '201810270000', query: 'place:central park' },  function (err, data, response) {
-    res.send(data.results.filter(tweet => tweet.retweeted_status == undefined)
-)
+  var tweets = {
+    'all' : [],
+    hashtags: {}
+  }
+
+  var hashtagsDict = { }
+
+  T.get('tweets/search/30day/prodcpc', { fromDate: '201810200000', toDate: '201810210000', query: "place:central_park" },  function (err, data, response) {
+    tweets.all = data.results.filter(tweet => tweet.retweeted_status == undefined)
+    tweets.all.forEach(tweet => {
+      let hashtags = tweet.entities.hashtags
+      if (hashtags.length != 0){
+        hashtags.forEach( hashtag => {
+          if (hashtagsDict[hashtag.text] != undefined){
+              hashtagsDict[hashtag.text] = hashtagsDict[hashtag.text] +1
+          }else{
+              hashtagsDict[hashtag.text] = 1
+          }
+          
+        })
+      }
+    })
+    tweets.hashtags = hashtagsDict
+    res.send(tweets)
+
   })
+
+
+
 })
-
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(Example app listening on port ${port}!))

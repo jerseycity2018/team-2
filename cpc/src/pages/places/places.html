@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding text-center>
   <p>
     Here are some suggestions for a few great places to see on your visit!
   </p>
@@ -20,5 +20,13 @@
         {{ place.desc }}
       </p>
     </ion-card-content>
+    <ion-row align-items-center >
+        <ion-col align-items-center>
+          <button ion-button icon-start clear small (click)="visitedPlace(place)">
+            <ion-icon name="heart"></ion-icon>
+            <div> Been here today</div>
+          </button>
+        </ion-col>
+    </ion-row>
   </ion-card>
 </ion-content>

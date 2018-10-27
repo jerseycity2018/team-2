@@ -1,17 +1,52 @@
-<ion-header>
+  <ion-header>
   <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
   </ion-navbar>
-</ion-header>
+  </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
-</ion-content>
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <p text-center>
+          Your experience as a Central Park Visitor is our number one concern.  Please feel free to
+          leave any comments, concerns, a that you have about the park below.
+        </p>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+            <ion-label>Category</ion-label>
+            <ion-select [(ngModel)]="toppings" required multiple="false" placeholder="General Comment">
+              <ion-option>Suggestion</ion-option>
+              <ion-option>Noise Complaint</ion-option>
+              <ion-option>Non-Emergency Safety Concern</ion-option>
+              <ion-option>Park Misuse</ion-option>
+              <ion-option>Trash in Park</ion-option>
+              <ion-option>Other</ion-option>
+            </ion-select>
+          </ion-item>            
+      </ion-row>
+
+      <ion-item>
+          <ion-label color="primary" stacked></ion-label>
+          <ion-input type="text" placeholder="Please add details for your comment" [(ngModel)]="comment"></ion-input>
+      </ion-item>
+
+      <div padding>
+          <button ion-button block (click)="popUp(comment)">Sign In</button>
+      </div>
+      
+<!-- fab button  -->
+      <ion-fab bottom right >
+          <button ion-fab>Share</button>
+          <ion-fab-list side="top">
+            <button ion-fab>Facebook</button>
+            <button ion-fab>Twitter</button>
+            <button ion-fab>Youtube</button>
+          </ion-fab-list>
+          <ion-fab-list side="left">
+            <button ion-fab>Vimeo</button>
+          </ion-fab-list>
+        </ion-fab>
+
+    </ion-grid> 
+
+ </ion-content>
