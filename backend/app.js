@@ -17,13 +17,28 @@ app.get('/tweets', (req, res) => {
   })
 
   var tweets = {
-    'all' : []
+    'all' : [],
+    hashtags: {}
   }
+
+  var hashtagsDict = { }
+
   T.get('tweets/search/30day/prodcpc', { fromDate: '201810260000', toDate: '201810270000', query: "place:central_park" },  function (err, data, response) {
     tweets.all = data.results.filter(tweet => tweet.retweeted_status == undefined)
-    tweets.all.foreach(tweet => {
-      let hashtags = tweet.extended_tweet.entities.hashtags
+    tweets.all.forEach(tweet => {
+      let hashtags = tweet.entities.hashtags
+      if (hashtags.length != 0){
+        hashtags.forEach( hashtag => {
+          if (hashtagsDict[hashtag.text] != undefined){
+              hashtagsDict[hashtag.text] = hashtagsDict[hashtag.text] +1
+          }else{
+              hashtagsDict[hashtag.text] = 1
+          }
+          
+        })
+      }
     })
+    tweets.hashtags = hashtagsDict
     res.send(tweets)
 
   })
@@ -31,4 +46,4 @@ app.get('/tweets', (req, res) => {
 
 
 })
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(Example app listening on port ${port}!))
