@@ -15,7 +15,8 @@ app.get('/tweets/201810260000', (req, res) => {
   var tweets = {
     'all' : [],
     hashtags : {},
-    num_tweets : 0
+    num_tweets : 0,
+    num_mentions : 0
   }
   var hashtagsDict = { }
   T.get('tweets/search/30day/prodcpc', { fromDate: '201810260000', toDate: '201810270000', query: "place:central_park" },  function (err, data, response) {
@@ -31,6 +32,8 @@ app.get('/tweets/201810260000', (req, res) => {
           }
         })
       }
+      let mentions = tweet.entities.user_mentions
+      tweets.num_mentions = tweets.num_mentions + mentions.length
     })
     tweets.hashtags = hashtagsDict
     tweets.num_tweets = tweets.all.length
