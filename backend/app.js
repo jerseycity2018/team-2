@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const Twit = require('twit')
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
@@ -34,7 +34,7 @@ app.get('/tweets/201810260000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
@@ -75,7 +75,7 @@ app.get('/tweets/201810250000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
@@ -116,7 +116,7 @@ app.get('/tweets/201810240000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
@@ -157,7 +157,7 @@ app.get('/tweets/201810230000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
@@ -198,7 +198,7 @@ app.get('/tweets/201810220000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
@@ -239,7 +239,7 @@ app.get('/tweets/201810210000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
@@ -280,7 +280,7 @@ app.get('/tweets/201810200000', (req, res) => {
           }else{
               hashtagsDict[hashtag.text] = 1
           }
-          
+
         })
       }
     })
