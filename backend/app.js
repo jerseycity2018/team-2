@@ -32,7 +32,7 @@ app.get('/tweets/201810270000', (req, res) => {
 
   var hashtagsDict = { }
 
-  T.get('tweets/search/30day/prodcpc', { fromDate: '201810270000', toDate: '201810280000', query: "place:central_park" },  function (err, data, response) {
+  T.get('tweets/search/30day/prodcpc', { fromDate: '201810270000', toDate: '201810270900', query: "place:central_park" },  function (err, data, response) {
     tweets.all = data.results.filter(tweet => tweet.retweeted_status == undefined)
     tweets.all.forEach(tweet => {
       let hashtags = tweet.entities.hashtags
@@ -57,7 +57,6 @@ app.get('/tweets/201810270000', (req, res) => {
 
 
 })
-
 app.get('/tweets/201810260000', (req, res) => {
 
   var T = new Twit({
