@@ -21,7 +21,8 @@ app.get('/tweets', (req, res) => {
   }
   T.get('tweets/search/30day/prodcpc', { fromDate: '201810260000', toDate: '201810270000', query: "place:central_park" },  function (err, data, response) {
     tweets.all = data.results.filter(tweet => tweet.retweeted_status == undefined)
-   
+    tweets.all.foreach(tweet => {
+      let hashtags = tweet.extended_tweet.entities.hashtags
     })
     res.send(tweets)
 
@@ -30,4 +31,4 @@ app.get('/tweets', (req, res) => {
 
 
 })
-app.listen(port, () => console.log(Example app listening on port ${port}!))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
