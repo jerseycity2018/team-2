@@ -16,6 +16,16 @@ const msgPadding = {
   "padding": '5px 10px'
 }
 
+const data={};
+const msgBody={};
+let msgBox=
+  <div style={{"flex":'1'}}>
+    <div style={msgPadding}>
+      <p>This will be complain msgBody</p>
+    </div>
+  </div>
+;
+
 class Issues extends Component {
   render() {
     return (
@@ -34,29 +44,10 @@ class Issues extends Component {
 
         <div style={msgStyle}>
 
-          <div style={{"flex":'1'}}>
-            <div style={msgPadding}>
-              <p>This will be complain msg1</p>
-            </div>
-          </div>
-
-          <div style={{"flex":'1'}}>
-            <div style={msgPadding}>
-              <p>This will be complain msg2</p>
-            </div>
-          </div>
-
-          <div style={{"flex":'1'}}>
-            <div style={msgPadding}>
-              <p>This will be complain msg3</p>
-            </div>
-          </div>
-
-          <div style={{"flex":'1'}}>
-            <div style={msgPadding}>
-              <p>This will be complain msg4</p>
-            </div>
-          </div>
+        {msgBox}
+        {msgBox}
+        {msgBox}
+        {msgBox}
 
         </div>
       </div>
