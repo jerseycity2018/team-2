@@ -12,17 +12,11 @@ const msgStyle = {
   "display":"flex",
 }
 
-
-
 const msgPadding = {
   "padding": '5px 10px'
 }
 
-
 class Issues extends Component {
-
-
-
   render() {
     return (
       <section className="App" style={sectionStyle}>
