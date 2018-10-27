@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <p>
+    Here are some suggestions for a few great places to see on your visit!
+  </p>
+
+  <!-- insert all of the places to visit using cards -->
+  <ion-card *ngFor= "let place of places">
+    <img src= "{{ place.picture }}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ place.name }}
+        </ion-card-title>
+      <p>
+        {{ place.desc }}
+      </p>
+    </ion-card-content>
+    <ion-row align-items-center >
+        <ion-col align-items-center>
+          <button ion-button icon-start clear small>
+            <ion-icon name="heart"></ion-icon>
+            <div> Been here today</div>
+          </button>
+        </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

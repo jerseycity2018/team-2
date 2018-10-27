@@ -1,0 +1,33 @@
+  <ion-header>
+  <ion-navbar>
+  </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <p text-center>
+          Your experience as a Central Park Visitor is our number one concern.  Please feel free to
+          leave any comments, concerns, a that you have about the park below.
+        </p>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+            <ion-label>Category</ion-label>
+            <ion-select [(ngModel)]="toppings" required multiple="false" placeholder="General Comment">
+              <ion-option>Suggestion</ion-option>
+              <ion-option>Noise Complaint</ion-option>
+              <ion-option>Non-Emergency Safety Concern</ion-option>
+              <ion-option>Park Misuse</ion-option>
+              <ion-option>Trash in Park</ion-option>
+              <ion-option>Other</ion-option>
+            </ion-select>
+          </ion-item>            
+      </ion-row>
+      <div padding>
+          <button ion-button block (click)="popUp()">Sign In</button>
+      </div>
+
+    </ion-grid> 
+
+ </ion-content>
